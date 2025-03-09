@@ -28,10 +28,10 @@ describe('Add Asus Full Hd Monitor to the Cart and Proceed Transaction ', functi
         /*await browser.waitUntil(async () => await browser.isAlertOpen(), {
             timeout: 5000,
             timeoutMsg: 'Expected alert to be present'
-        });
+        });*/
 
-        const alertText = await browser.getAlertText();
-        expect(alertText).toEqual('Product added');*/
+        const alertText = await AddtoCartpage.$AddtoCart().getAlertText();
+        expect(alertText).toEqual('Product added');
         //await browser.acceptAlert();
     })
     it('Proceed the checkout',async()=>{
