@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "await expect(phone).toContain('Samsung galaxy s7')"
+}
