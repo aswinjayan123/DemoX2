@@ -23,7 +23,16 @@ describe('Add Asus Full Hd Monitor to the Cart and Proceed Transaction ', functi
         await expect(AddtoCartpage.$PhoneName()).toBeDisplayed();
         await expect(AddtoCartpage.$PhoneName()).toHaveText('Samsung galaxy s7');
         await AddtoCartpage.$AddtoCart().click();
-        await browser.pause(2500);
+        await browser.pause(5000);
+        // Handle and Assert JavaScript Alert
+        await browser.waitUntil(async () => await browser.isAlertOpen(), {
+            timeout: 5000,
+            timeoutMsg: 'Expected alert to be present'
+        });
+
+        const alertText = await browser.getAlertText();
+        expect(alertText).toEqual('Product added');
+        await browser.acceptAlert();
     })
     it('Proceed the checkout',async()=>{
         await AddtoCartpage.$Cart().click();
