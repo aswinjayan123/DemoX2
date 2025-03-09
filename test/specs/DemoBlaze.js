@@ -32,7 +32,7 @@ describe('Add Asus Full Hd Monitor to the Cart and Proceed Transaction ', functi
 
         const alertText = await AddtoCartpage.$AddtoCart().getAlertText();
         expect(alertText).toEqual('Product added');
-        //await browser.acceptAlert();
+        await browser.acceptAlert();
     })
     it('Proceed the checkout',async()=>{
         await AddtoCartpage.$Cart().click();
